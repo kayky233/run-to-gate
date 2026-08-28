@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "skill": "rtg-review",
+  "files": [
+    {
+      "path": "LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "SKILL.md",
+      "size": 1179,
+      "sha256": "af6836d050f937a5e2866539b398787f21c21bf5c027b52090d35f0f27ccd8ef"
+    }
+  ]
+}

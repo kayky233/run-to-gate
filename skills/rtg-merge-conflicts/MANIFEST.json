@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "skill": "rtg-merge-conflicts",
+  "files": [
+    {
+      "path": "LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "SKILL.md",
+      "size": 1009,
+      "sha256": "8f806c1d5df272dd2aa9fc5886023ff4724077767366676359d222edf4d906b5"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "skill": "rtg-research",
+  "files": [
+    {
+      "path": "LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "SKILL.md",
+      "size": 1301,
+      "sha256": "feb5ea1d585100e77e6b348c9c717d0a01d2817f9303e51e3bc34ee22dab7c43"
+    }
+  ]
+}

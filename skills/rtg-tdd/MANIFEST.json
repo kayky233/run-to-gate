@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "skill": "rtg-tdd",
+  "files": [
+    {
+      "path": "LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "SKILL.md",
+      "size": 1002,
+      "sha256": "a6999b71cc180a9f6248ac8e22cfe91692d1b3c100ae7c280b8898a585357504"
+    }
+  ]
+}

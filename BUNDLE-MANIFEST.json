@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "bundle": "run-to-gate",
+  "version": "1.0.0",
+  "main_install": "install/run-to-gate.zip",
+  "skills": [
+    "run-to-gate",
+    "rtg-research",
+    "rtg-prototype",
+    "rtg-tdd",
+    "rtg-diagnose",
+    "rtg-review",
+    "rtg-merge-conflicts",
+    "rtg-manual-action"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "size": 2545,
+      "sha256": "a7324bdcdc46727814c5ce4974bfa97c193940256ad98863dd65402961b00c92"
+    },
+    {
+      "path": "install/optional/rtg-diagnose.zip",
+      "size": 2601,
+      "sha256": "8937a95297af3aa056a4e79187ca3db4cc98042afad0639aa3812d6867f1a061"
+    },
+    {
+      "path": "install/optional/rtg-manual-action.zip",
+      "size": 3395,
+      "sha256": "707ddf5bc375f85f9640966d03723ca4a31200ce9394b9ac752acc3fa9c5f47a"
+    },
+    {
+      "path": "install/optional/rtg-merge-conflicts.zip",
+      "size": 2538,
+      "sha256": "fb734dc2b00505a0bbad30e509bd1c951f589f4955f0a552aef0cf8e6db5c1f4"
+    },
+    {
+      "path": "install/optional/rtg-prototype.zip",
+      "size": 2607,
+      "sha256": "bc75473d20a5489211535e912c443f24e781bcba1e4d2fd2ddf68e2b70c9fc1c"
+    },
+    {
+      "path": "install/optional/rtg-research.zip",
+      "size": 2581,
+      "sha256": "50fa6d06cd6069308a4756bd2c8fdf858221d9ef5cb78d47e56e706cb3c376b8"
+    },
+    {
+      "path": "install/optional/rtg-review.zip",
+      "size": 2525,
+      "sha256": "6a605d324bbb2ba22a73fa1ad0787c2c84c7da9ee90e832300ab3c79dc5f584c"
+    },
+    {
+      "path": "install/optional/rtg-tdd.zip",
+      "size": 2430,
+      "sha256": "d25d33bdd4c790418380388fc1a6dcd314f627656b6b960e642e7e7627cf0e96"
+    },
+    {
+      "path": "install/run-to-gate.zip",
+      "size": 58167,
+      "sha256": "08294e92775c7367beeecec7b9666ea0d2dcb8a9e2088996ff9e4739c87c3066"
+    },
+    {
+      "path": "licenses/MATTPOCOCK-SKILLS-LICENSE.txt",
+      "size": 1068,
+      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "path": "licenses/RUN-TO-GATE-LICENSE.txt",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "licenses/THIRD-PARTY-NOTICES.md",
+      "size": 455,
+      "sha256": "11d7578771f5e9032c474a8530cf5855d8a70098f5251ab288112fd691ed6b8d"
+    },
+    {
+      "path": "skills/rtg-diagnose/LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "skills/rtg-diagnose/MANIFEST.json",
+      "size": 495,
+      "sha256": "e7bfaa4e77c3f338502908e6a109b8f9cbabeaeb7d10b48e6080f3a62008b3d6"
+    },
+    {
+      "path": "skills/rtg-diagnose/NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "skills/rtg-diagnose/SKILL.md",
+      "size": 1231,
+      "sha256": "536deb41bc628d7f16dddef6f3b2545f03786e8793b2b8c5cbcf5a8534d8a7f9"
+    },
+    {
+      "path": "skills/rtg-manual-action/LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "skills/rtg-manual-action/MANIFEST.json",
+      "size": 644,
+      "sha256": "bfa05acd6572883f43d98407ce89a19aa31661c59bd982ce38d213b2eb3cf005"
+    },
+    {
+      "path": "skills/rtg-manual-action/NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "skills/rtg-manual-action/SKILL.md",
+      "size": 1208,
+      "sha256": "5099b091d85b1ffa00e4621c1d362c9d29bcb3ce4477780bf4304dc0c7d76ebe"
+    },
+    {
+      "path": "skills/rtg-manual-action/template.sh",
+      "size": 982,
+      "sha256": "e61a59155f0a65e02967ac907363bfcfcffff2233e7adcb8f9dc155766284e2c"
+    },
+    {
+      "path": "skills/rtg-merge-conflicts/LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "skills/rtg-merge-conflicts/MANIFEST.json",
+      "size": 502,
+      "sha256": "21efd57690f93c0d6ed5ec2bf5a2c1bc9e9118aab2c2b93437bca4da2a587c65"
+    },
+    {
+      "path": "skills/rtg-merge-conflicts/NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "skills/rtg-merge-conflicts/SKILL.md",
+      "size": 1009,
+      "sha256": "8f806c1d5df272dd2aa9fc5886023ff4724077767366676359d222edf4d906b5"
+    },
+    {
+      "path": "skills/rtg-prototype/LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "skills/rtg-prototype/MANIFEST.json",
+      "size": 496,
+      "sha256": "a2f6f3fcad06386c63ff8c4d25692c8b66f0b743de7491c3acb6f3d80533e142"
+    },
+    {
+      "path": "skills/rtg-prototype/NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "skills/rtg-prototype/SKILL.md",
+      "size": 1270,
+      "sha256": "48abaa3637dc95b0f8baa4edad7b64a75dbc3cf33575460f7abba403f18535c3"
+    },
+    {
+      "path": "skills/rtg-research/LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "skills/rtg-research/MANIFEST.json",
+      "size": 495,
+      "sha256": "bbf7e8d4099f5480520bd511bbcc4be108f4ea044784752b22d67674a7d9fe47"
+    },
+    {
+      "path": "skills/rtg-research/NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "skills/rtg-research/SKILL.md",
+      "size": 1301,
+      "sha256": "feb5ea1d585100e77e6b348c9c717d0a01d2817f9303e51e3bc34ee22dab7c43"
+    },
+    {
+      "path": "skills/rtg-review/LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "skills/rtg-review/MANIFEST.json",
+      "size": 493,
+      "sha256": "4702789b76d2fda4fa9956dee70c3dff1d98d73e9a1b54fbc1a2eaab1e1a0f60"
+    },
+    {
+      "path": "skills/rtg-review/NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "skills/rtg-review/SKILL.md",
+      "size": 1179,
+      "sha256": "af6836d050f937a5e2866539b398787f21c21bf5c027b52090d35f0f27ccd8ef"
+    },
+    {
+      "path": "skills/rtg-tdd/LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "skills/rtg-tdd/MANIFEST.json",
+      "size": 490,
+      "sha256": "bce40c6615553aa53d1f6112e8546eb3bf5f170983673ff94eb0de99f32be3c5"
+    },
+    {
+      "path": "skills/rtg-tdd/NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "skills/rtg-tdd/SKILL.md",
+      "size": 1002,
+      "sha256": "a6999b71cc180a9f6248ac8e22cfe91692d1b3c100ae7c280b8898a585357504"
+    },
+    {
+      "path": "skills/run-to-gate/LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "skills/run-to-gate/MANIFEST.json",
+      "size": 7073,
+      "sha256": "d76e63295efd5ed2af8424f236a62fd14e3a438fb32af6af252d403abe5042eb"
+    },
+    {
+      "path": "skills/run-to-gate/NOTICE.md",
+      "size": 830,
+      "sha256": "b1a621844fcb869fc0aed92cbdbc40f9ade25cc570e00642535dcbe0bc72b277"
+    },
+    {
+      "path": "skills/run-to-gate/README.md",
+      "size": 3812,
+      "sha256": "85b9ef5ac229b580127e1acb0e50da4505581112d0b03311411a9569329e5502"
+    },
+    {
+      "path": "skills/run-to-gate/SKILL.md",
+      "size": 11228,
+      "sha256": "d79a147c7db58c44e2f5c122c0fbaeeff847b19e81e668037439b526a9142714"
+    },
+    {
+      "path": "skills/run-to-gate/assets/completion-report.template.md",
+      "size": 445,
+      "sha256": "8d6712c0993e1ae15c4076cfd00fac172f0248ae4a6610266b04652311277b88"
+    },
+    {
+      "path": "skills/run-to-gate/assets/decision-request.template.md",
+      "size": 621,
+      "sha256": "d6045fde1142cdb9ea95c8a7ad13ac88d89a4bfa94274e0d8750349fdcb8fc0a"
+    },
+    {
+      "path": "skills/run-to-gate/assets/flow-policy.template.json",
+      "size": 1738,
+      "sha256": "4887e03854de2a88f90de74ed128dd06aeb9fb000696ac458dddc0bbb6f54ea8"
+    },
+    {
+      "path": "skills/run-to-gate/assets/manual-action.template.md",
+      "size": 603,
+      "sha256": "b52af76b345891253b93f1554ab4e50aaee260d95cd6c27a0557c53dfd2b90ff"
+    },
+    {
+      "path": "skills/run-to-gate/assets/pr-body.template.md",
+      "size": 351,
+      "sha256": "4150007816ebd6b1cedecf18bbf0e8b819ddc228fd4d5673023cd292b0c86069"
+    },
+    {
+      "path": "skills/run-to-gate/assets/spec.template.md",
+      "size": 716,
+      "sha256": "146c1251aff4de3c2c6e35d995ae030f6f9732cbc93d1f5c4f67eebeec3bfc4a"
+    },
+    {
+      "path": "skills/run-to-gate/assets/ticket.template.md",
+      "size": 461,
+      "sha256": "9641c8d20445a92724d184c344675eb4db207813549a963f580ba2530c9c90d7"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/README.md",
+      "size": 958,
+      "sha256": "2b8eab231ee4b8e332f2432159b2ad3f510e5aeca5aa6ede20978978f03a983e"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/00-realistic-user-prompt.md",
+      "size": 1086,
+      "sha256": "09b0327b54404596e2f2de0d019335406fcef118e6015a33a306b403ff62481d"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/README.md",
+      "size": 1318,
+      "sha256": "be1979938f134e324a971edf1e0feccb6b1672cadf410d768717377fdfcfa32b"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/dependencies.md",
+      "size": 3047,
+      "sha256": "b91c24b6e267adf0a38fdcb1a36c934ac008640217297c6b774281d4cb0b880f"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/map.md",
+      "size": 3538,
+      "sha256": "3bfdd8e1097a67c1d9e624f8dacc675e9e255a3abf6ea8fb3ea957702ef58438"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/a2-complex-compute-envelope.md",
+      "size": 1134,
+      "sha256": "8ffe9a565d7eaa247ee03ed2f01634779b20db8d8f27f91434e39e291e7705d4"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/choose-shared-operator-architecture.md",
+      "size": 679,
+      "sha256": "d1f8b68fcf31826ca77e800d6bd1ba67352ee8d91867940d3f78c2d9ad98baa5"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/confirm-delivery-path.md",
+      "size": 850,
+      "sha256": "eff54b0743200ef7434cdb0aa9c2f561bdf966f356e8e3f4b8536b6c446a1d9d"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/decide-upstream-integration-shape.md",
+      "size": 709,
+      "sha256": "931d19f2193afb29910778e3fd4f5d350160de0ef74e5abe62a82c0e649c68a8"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/define-performance-budget.md",
+      "size": 832,
+      "sha256": "95f3e601b88199f1f78a97f7c2dfc559d141b4b213279da529abbf9394b67705"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/freeze-delivery-baseline.md",
+      "size": 1044,
+      "sha256": "edbfea7069ede60727cbf44d4ce36878dbc12b06802e20daf3771827ce0830ad"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/lock-public-api-semantics.md",
+      "size": 615,
+      "sha256": "5182c2fdfb1523cfdc48396186a13b32a212735e962d9d4a1311aab220d18e0d"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/lock-test-and-proof-plan.md",
+      "size": 884,
+      "sha256": "00d49262001e250c96672c5de71ed2b5449556594d4150ae4e3063109f257c6c"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/reconcile-acceptance-bundle.md",
+      "size": 1217,
+      "sha256": "2bfa7cd76135457afd72e371726d5803e3bd5d5243affa30875949d6407e543f"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/source-wayfinder/tickets/settle-triangular-hermitian-strategy.md",
+      "size": 771,
+      "sha256": "c1d44699acaba5867aefc809f77da269cade6f505978e89aa3abc1c0328e4346"
+    },
+    {
+      "path": "skills/run-to-gate/examples/matmul-series/state.json",
+      "size": 10022,
+      "sha256": "5348b69bbc9e3c72ea7b974b4c5531b82300188029acec8c2f76767d2efda2a8"
+    },
+    {
+      "path": "skills/run-to-gate/references/companion-skills.md",
+      "size": 1352,
+      "sha256": "df740bf2ca718ec9ef24c88772c2d1c90deee1d6ede63036a8fff21d9311592e"
+    },
+    {
+      "path": "skills/run-to-gate/references/decision-gates.md",
+      "size": 2955,
+      "sha256": "7a4c626218a563eba25709e49cfbdf9008cc1265b90c18d471b00bf98662c25f"
+    },
+    {
+      "path": "skills/run-to-gate/references/decision-mapping.md",
+      "size": 3182,
+      "sha256": "eb75ff8a4538b5f0206824c828370a5fbe9e4860d435261ad429f1dd40c1cb17"
+    },
+    {
+      "path": "skills/run-to-gate/references/diagnosis.md",
+      "size": 2084,
+      "sha256": "41042a3a9196898fe56c5ee1024ccc58a92bb2d012fdc29d0a339be0d28d2993"
+    },
+    {
+      "path": "skills/run-to-gate/references/execution-policy.md",
+      "size": 2537,
+      "sha256": "0fcba77160044283128e77aed4d3f4e11807bdab2d11756d07184a9260c6d228"
+    },
+    {
+      "path": "skills/run-to-gate/references/failure-routing.md",
+      "size": 2833,
+      "sha256": "863850eec2ae847fce2e6188705e414f3d5cc9b2300711c07b2cecab4d746395"
+    },
+    {
+      "path": "skills/run-to-gate/references/review-and-integration.md",
+      "size": 2391,
+      "sha256": "f969875a9d4bc82f9190f2223fc9f620eb5bf2b9ecf5388d2926e16e52382798"
+    },
+    {
+      "path": "skills/run-to-gate/references/state-schema.md",
+      "size": 2723,
+      "sha256": "31f6dbc9b3442afdcad6cfe023200fe2cb4ec154d15400105bb166e364ed04c3"
+    },
+    {
+      "path": "skills/run-to-gate/references/test-and-proof.md",
+      "size": 2424,
+      "sha256": "4a2362c822bd366279749e3ab9979fb0242f50b79bf312821897401afde822f2"
+    },
+    {
+      "path": "skills/run-to-gate/references/workflow.md",
+      "size": 5073,
+      "sha256": "c1df0608174ad3532aa56c18be24f85125d98c8fe4b1e1a3a6ebe94b0563b0c1"
+    },
+    {
+      "path": "skills/run-to-gate/scripts/flowctl.py",
+      "size": 24608,
+      "sha256": "f00c6a1edd0457aa6e473ce119ed4f4d8490508f37cf2420912b8cdff3a3c405"
+    },
+    {
+      "path": "skills/run-to-gate/scripts/package_check.py",
+      "size": 3473,
+      "sha256": "ad2bb897111623290c68ba92370877c27e6fffbae737f962356a6f020d2c64f6"
+    },
+    {
+      "path": "skills/run-to-gate/tests/test_flowctl.py",
+      "size": 5733,
+      "sha256": "ffedaeb4aeffef66e5f1026b5143d9240db07dd001315398ecc02cf8aea1599c"
+    }
+  ]
+}

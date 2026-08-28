@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "mode": "run_to_gate",
+  "human_only_for": [
+    "product_behavior",
+    "public_contract_or_schema",
+    "architecture_with_material_tradeoffs",
+    "scope_or_acceptance_change",
+    "security_privacy_permission_or_credentials",
+    "irreversible_or_production_action",
+    "merge_release_or_deployment"
+  ],
+  "human_action_only_for": [
+    "private_system_access",
+    "credential_entry",
+    "browser_only_configuration",
+    "physical_or_target_device_validation",
+    "platform_confirmation"
+  ],
+  "delegated_to_ai": [
+    "research_and_repository_archaeology",
+    "reversible_implementation_details",
+    "ticket_breakdown_and_dependencies",
+    "test_design_at_existing_seams",
+    "implementation_and_refactoring",
+    "debugging_profiling_and_performance_work",
+    "deterministic_review_fixes",
+    "branch_commits_push_pull_request_and_ci_repair"
+  ],
+  "git": {
+    "require_isolated_branch": true,
+    "allow_default_branch_commit": false,
+    "allow_force_push": false,
+    "allow_history_rewrite": false,
+    "allow_merge": false,
+    "allow_release": false,
+    "allow_production_deploy": false
+  },
+  "test_policy": {
+    "prefer_highest_existing_public_seam": true,
+    "new_or_moved_public_seam_requires_decision": true,
+    "require_red_before_fix_for_reproducible_bugs": true,
+    "require_project_checks_before_completion": true,
+    "allow_acceptance_weakening_without_decision": false,
+    "partial_environment_is_not_final_acceptance": true
+  },
+  "loop_budgets": {
+    "implementation_attempts_before_formal_diagnosis": 2,
+    "review_fix_cycles": 2,
+    "ci_repair_cycles": 3,
+    "performance_interventions": 6
+  },
+  "delivery_stop": "green_pull_request_ready_for_human_merge"
+}

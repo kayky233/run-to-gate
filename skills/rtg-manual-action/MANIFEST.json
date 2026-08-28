@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "skill": "rtg-manual-action",
+  "files": [
+    {
+      "path": "LICENSE",
+      "size": 1081,
+      "sha256": "d462d55c78bb8cd29929f67ac881860ee8e8a1bdf6ad7c9f971d7c563174a00c"
+    },
+    {
+      "path": "NOTICE.md",
+      "size": 169,
+      "sha256": "9934adffacdcbda692fbf6657279765da16635ee2b8956bb849a00999fc0cb47"
+    },
+    {
+      "path": "SKILL.md",
+      "size": 1208,
+      "sha256": "5099b091d85b1ffa00e4621c1d362c9d29bcb3ce4477780bf4304dc0c7d76ebe"
+    },
+    {
+      "path": "template.sh",
+      "size": 982,
+      "sha256": "e61a59155f0a65e02967ac907363bfcfcffff2233e7adcb8f9dc155766284e2c"
+    }
+  ]
+}

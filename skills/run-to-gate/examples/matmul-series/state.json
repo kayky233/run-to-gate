@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "flow_id": "matmul-series",
+  "title": "Atlas A2 complex64 matrix-multiply series",
+  "source": "Imported Wayfinder map and community task book",
+  "outcome": "Deliver a green pull request implementing CHEMM, CHER2K, CHERK, CSYMM, and CSYRK for the frozen Atlas A2/arch22 baseline; stop before merge/release.",
+  "phase": "decision_mapping",
+  "run_status": "active",
+  "revision": 14,
+  "created_at": "2026-08-25T06:50:29.494530Z",
+  "updated_at": "2026-08-25T06:50:39.374502Z",
+  "repository": {
+    "root": "/path/to/ops-blas",
+    "base_ref": "origin/<freeze-at-D-001>",
+    "feature_branch": "feat/a2-complex64-matmul-series",
+    "worktree": "",
+    "head_commit": ""
+  },
+  "capabilities": {
+    "tier": "unknown",
+    "tools": [],
+    "limitations": []
+  },
+  "policy": {
+    "mode": "run_to_gate",
+    "stop_before": [
+      "merge",
+      "release",
+      "production_deploy"
+    ]
+  },
+  "gates": [
+    {
+      "id": "D-001",
+      "kind": "contract",
+      "title": "Freeze delivery baseline",
+      "question": "Which exact ops-blas repository/fork, branch or commit, CANN package version, and Atlas A2 arch22 environment are authoritative for final delivery?",
+      "recommendation": "Use the exact baseline bundled with the official acceptance environment; pin its commit before implementation.",
+      "options": [
+        "official-task-baseline",
+        "current-upstream-master",
+        "developer-fork-branch"
+      ],
+      "blocks": [
+        "T-001",
+        "T-005",
+        "T-010"
+      ],
+      "status": "open",
+      "opened_at": "2026-08-25T06:50:39.374454Z",
+      "resolved_at": null,
+      "answer": null,
+      "selected_option": null,
+      "resume_condition": "human response recorded"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "T-001",
+      "title": "Freeze the delivery baseline and repository contract",
+      "type": "decision",
+      "mode": "HITL",
+      "blocked_by": [],
+      "status": "in_progress",
+      "owner": "human",
+      "acceptance": [
+        "Repository URL/fork, branch/tag/commit, CANN version, SoC and normative repository rules are recorded."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:31.694779Z",
+      "updated_at": "2026-08-25T06:50:32.435626Z"
+    },
+    {
+      "id": "T-002",
+      "title": "Reconcile the supplied acceptance bundle with the current precision standard",
+      "type": "research",
+      "mode": "AFK",
+      "blocked_by": [],
+      "status": "ready",
+      "owner": null,
+      "acceptance": [
+        "Every bundled case and instruction is classified keep/adapt/reject against the frozen contract."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:33.144384Z",
+      "updated_at": "2026-08-25T06:50:33.144403Z"
+    },
+    {
+      "id": "T-003",
+      "title": "Establish the Atlas A2 complex64 compute capability envelope",
+      "type": "research",
+      "mode": "AFK",
+      "blocked_by": [],
+      "status": "ready",
+      "owner": null,
+      "acceptance": [
+        "Capability table, recommended architecture family, and rejected alternatives are documented with primary evidence."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:33.919425Z",
+      "updated_at": "2026-08-25T06:50:33.919443Z"
+    },
+    {
+      "id": "T-004",
+      "title": "Confirm community-task deliverables and upstream submission path",
+      "type": "research",
+      "mode": "AFK",
+      "blocked_by": [],
+      "status": "ready",
+      "owner": null,
+      "acceptance": [
+        "A reproducible current submission checklist is documented."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:34.530718Z",
+      "updated_at": "2026-08-25T06:50:34.530735Z"
+    },
+    {
+      "id": "T-005",
+      "title": "Lock the five public API and edge-case semantics",
+      "type": "research",
+      "mode": "AFK",
+      "blocked_by": [
+        "T-001"
+      ],
+      "status": "blocked",
+      "owner": null,
+      "acceptance": [
+        "Host signatures, validation order, quick returns, dimensions, pointers and triangular semantics are explicit."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:35.230617Z",
+      "updated_at": "2026-08-25T06:50:35.230634Z"
+    },
+    {
+      "id": "T-006",
+      "title": "Choose the shared operator architecture boundary",
+      "type": "decision",
+      "mode": "HITL",
+      "blocked_by": [
+        "T-003",
+        "T-005"
+      ],
+      "status": "blocked",
+      "owner": null,
+      "acceptance": [
+        "The shared engine/family/operator-specific boundary and tradeoffs are recorded."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:35.837166Z",
+      "updated_at": "2026-08-25T06:50:35.837183Z"
+    },
+    {
+      "id": "T-007",
+      "title": "Settle triangular, symmetric, and Hermitian dataflow strategy",
+      "type": "prototype",
+      "mode": "HITL",
+      "blocked_by": [
+        "T-003",
+        "T-005"
+      ],
+      "status": "blocked",
+      "owner": null,
+      "acceptance": [
+        "Throwaway evidence compares materialization, mirrored tiles, and filtered writeback."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:36.495917Z",
+      "updated_at": "2026-08-25T06:50:36.495937Z"
+    },
+    {
+      "id": "T-008",
+      "title": "Define per-stage performance budgets against A100 targets",
+      "type": "research",
+      "mode": "AFK",
+      "blocked_by": [
+        "T-003",
+        "T-006",
+        "T-007"
+      ],
+      "status": "blocked",
+      "owner": null,
+      "acceptance": [
+        "All official cases have calculated NPU limits, stage budgets, and profiling metrics."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:37.157097Z",
+      "updated_at": "2026-08-25T06:50:37.157114Z"
+    },
+    {
+      "id": "T-009",
+      "title": "Lock the implementation proof and acceptance-test plan",
+      "type": "decision",
+      "mode": "HITL",
+      "blocked_by": [
+        "T-002",
+        "T-005",
+        "T-008"
+      ],
+      "status": "blocked",
+      "owner": null,
+      "acceptance": [
+        "The complete functional, precision, performance, and evidence matrix is recorded."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:37.854270Z",
+      "updated_at": "2026-08-25T06:50:37.854291Z"
+    },
+    {
+      "id": "T-010",
+      "title": "Decide upstream integration and PR shape",
+      "type": "decision",
+      "mode": "HITL",
+      "blocked_by": [
+        "T-001",
+        "T-004",
+        "T-006",
+        "T-009"
+      ],
+      "status": "blocked",
+      "owner": null,
+      "acceptance": [
+        "PR staging and allowed shared infrastructure changes are fixed."
+      ],
+      "commits": [],
+      "evidence_ids": [],
+      "created_at": "2026-08-25T06:50:38.567701Z",
+      "updated_at": "2026-08-25T06:50:38.567719Z"
+    }
+  ],
+  "evidence": [],
+  "events": [
+    {
+      "at": "2026-08-25T06:50:29.494574Z",
+      "action": "flow_initialized",
+      "details": {
+        "source": "Imported Wayfinder map and community task book"
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:30.317449Z",
+      "action": "phase_changed",
+      "details": {
+        "from": "bootstrap",
+        "to": "intake"
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:30.956106Z",
+      "action": "phase_changed",
+      "details": {
+        "from": "intake",
+        "to": "decision_mapping"
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:31.694811Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-001",
+        "blocked_by": []
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:32.435651Z",
+      "action": "ticket_status_changed",
+      "details": {
+        "id": "T-001",
+        "from": "ready",
+        "to": "in_progress"
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:33.144411Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-002",
+        "blocked_by": []
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:33.919452Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-003",
+        "blocked_by": []
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:34.530744Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-004",
+        "blocked_by": []
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:35.230644Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-005",
+        "blocked_by": [
+          "T-001"
+        ]
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:35.837196Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-006",
+        "blocked_by": [
+          "T-003",
+          "T-005"
+        ]
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:36.495947Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-007",
+        "blocked_by": [
+          "T-003",
+          "T-005"
+        ]
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:37.157124Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-008",
+        "blocked_by": [
+          "T-003",
+          "T-006",
+          "T-007"
+        ]
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:37.854303Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-009",
+        "blocked_by": [
+          "T-002",
+          "T-005",
+          "T-008"
+        ]
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:38.567730Z",
+      "action": "ticket_added",
+      "details": {
+        "id": "T-010",
+        "blocked_by": [
+          "T-001",
+          "T-004",
+          "T-006",
+          "T-009"
+        ]
+      }
+    },
+    {
+      "at": "2026-08-25T06:50:39.374472Z",
+      "action": "gate_opened",
+      "details": {
+        "id": "D-001",
+        "kind": "contract"
+      }
+    }
+  ]
+}
