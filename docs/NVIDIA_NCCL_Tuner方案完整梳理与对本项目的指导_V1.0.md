@@ -143,3 +143,81 @@ T_hat(algo, proto | context)
 - NCCL 文档索引：https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html
 
 版本提示：GitHub master 可能比部署版本更新。NVIDIA 示例的消息区间、算法和协议组合是特定平台结果，不可直接复制到 Ascend、沐曦或其他 NVIDIA 硬件。
+
+## 8. 对本项目的直接指导：迁移到 HCCL / NCCL / MCCL
+
+此前 Ascend 910 实机工作证明插件可以影响真实执行器选择，特定 FP32 2 MiB/4 MiB AllReduce 场景出现过明显收益；但 Decode 候选最新两组配对方向相反，尚不能宣称稳定加速。最值得迁移的是“先测量默认选择是否错误，再做窄范围、可回滚的决策覆盖”，不是复制 NVIDIA 阈值。
+
+| NVIDIA 设计要点 | 当前差距 | 建议行动 |
+|---|---|---|
+| Cost table + getCollInfo | 当前实验插件返回候选编号并映射到 HCCL Executor；并非 NCCL 官方 ABI | 统一策略核心，为 HCCL/MCCL 定义后端适配器 |
+| S 曲线与 optimize-config | 已有部分离线 A/B，尚未形成自动画像流水线 | 统一 benchmark schema，自动画曲线并识别拐点 |
+| 能力过滤 | 已定位特定运行时不支持 FP16 Inline Reduce | 按 backend/library version/dtype/size/topology 过滤 |
+| 定向覆盖 | 已实现少数精确规格的候选选择 | 只覆盖有证据区间；未测场景保留原生 |
+| 动态参数 | 当前重点是算法选择；缓存候选属于独立执行层实验 | 优先算法/协议决策，CTA/channel/chunk 分开测 |
+| 阶段感知 | Prefill/Decode 目标不同，标准输入不含 phase | 框架桥接 phase tag，并用真实请求验证 |
+| 性能反馈 | 有微基准和 TTFT/TPOT 记录，需统一口径 | 建立版本化 profile 与端到端验收门禁 |
+
+## 9. 推荐的 Tuner V1 架构
+
+```text
+推理/训练框架：phase tag / model context / workload objective
+                         |
+                         v
+                      Tuner Core
+       Feature Extractor / Capability Filter / Profile Store
+       Cost Model / Rule Engine / Explain & Telemetry / Fallback
+                         |
+           +-------------+--------------+
+           |             |              |
+           v             v              v
+       HCCL Adapter   NCCL Adapter   MCCL Adapter
+       目标/实验 ABI   官方 Tuner ABI  核验目标 SDK ABI
+           |             |              |
+           v             v              v
+       HCCL Executor  NCCL Executor   MCCL Runtime
+```
+
+V1 不必立即实现复杂在线学习。先采用离线画像 + 运行时查表/规则；当画像覆盖和测量质量足够时，再增加轻量在线观测。所有候选都经过后端能力过滤与正确性门禁，策略失败时回退通信库原生选择。
+
+## 10. 逐步落地计划（run-to-gate）
+
+| 阶段 | 具体工作 | 交付物 | 放行条件 |
+|---|---|---|---|
+| P0 基线冻结 | 锁定 NCCL/HCCL/MCCL 版本、头文件、插件 ABI、实际加载库与拓扑 | 版本/哈希清单、可复现 baseline | 环境与 ABI 可复核 |
+| P1 候选能力矩阵 | 列出 collective、dtype、消息范围、rank/node、拓扑下的合法算法/协议 | 能力矩阵 + 正确性脚本 | 所有入库候选正确性通过 |
+| P2 性能画像 | 扫描消息范围和合法候选；记录 latency、bus bandwidth、p50/p95、控制组 | 原始数据、S 曲线、profile schema | 重复性明确，控制组无未解释波动 |
+| P3 NCCL 插件原型 | 按部署版本实现 getCollInfo、配置解析、日志、回退 | 可加载插件 + 配置文件 | 未匹配场景保持默认，异常回退正确 |
+| P4 阶段桥接 | 由推理框架传 Prefill/Decode 标签并核验决策日志 | 阶段感知决策证据 | 标签与实际 collective 对齐 |
+| P5 选优与解释 | 从合法、已测候选中选择成本最低者，记录预测/实测和原因 | 决策报告、模型校准结果 | 不能选非法候选，选择可复现 |
+| P6 业务 A/B | Qwen TTFT/TPOT/吞吐；训练 step time；HTTP/SSE 与长稳 | 端到端收益报告 | 正确性、收益和尾延迟门禁通过 |
+| P7 后端扩展 | 实现 MCCL adapter，再适配 HCCL 目标接口 | 独立后端验证报告 | 按各自 SDK/ABI 验收 |
+
+## 11. 验收指标与风险控制
+
+| 指标 | 定义/计算 | 验收原则 |
+|---|---|---|
+| 非法候选误选率 | 被选中的不支持/未通过正确性候选数 ÷ 总决策数 | 必须为 0 |
+| 默认回退正确率 | 未匹配、配置错误、插件失败时是否使用原生选择 | 故障注入用例全部通过 |
+| 画像覆盖率 | 具有可信画像的调用场景 ÷ 目标场景 | 按阶段/消息/拓扑分别报告 |
+| 选优差距 | Tuner 选择耗时相对同场景实测最优候选的差距 | 同条件实测，逐步收敛 |
+| 通信收益 | 原生与 Tuner 的配对延迟/带宽差异 | 独立进程、交错 A/B、控制组支持 |
+| 业务收益 | TTFT、TPOT、吞吐或训练 step time 变化 | 以端到端指标验收，不从 microbenchmark 外推 |
+| 可解释性 | 记录候选、预测成本、画像版本、选择理由和回退原因 | 可复现、可审计 |
+
+关键风险包括固定阈值过拟合、跨版本画像误用、CTA 调优伤害计算、阶段标签缺失、rank 决策不一致、插件 ABI 演进、microbenchmark 收益未转化为业务收益。应按后端/硬件/库版本隔离画像、显式传递阶段标签、保证 collective 组决策兼容、灰度回滚并定期复测。
+
+## 12. 官方参考资料
+
+- NVIDIA 技术博客：Understanding NCCL Tuning to Accelerate GPU-to-GPU Communication（2025-07-22）：https://developer.nvidia.com/blog/understanding-nccl-tuning-to-accelerate-gpu-to-gpu-communication/
+- NCCL 2.32.3 文档：Environment Variables（NCCL_TUNER_PLUGIN）：https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/env.html
+- NCCL 官方示例 tuner.h：https://github.com/NVIDIA/nccl/blob/master/plugins/tuner/example/nccl/tuner.h
+- NCCL 官方示例 plugin.c：https://github.com/NVIDIA/nccl/blob/master/plugins/tuner/example/plugin.c
+- NCCL 官方示例配置：https://github.com/NVIDIA/nccl/blob/master/plugins/tuner/example/nccl_tuner.conf
+- NCCL 文档索引：https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html
+
+版本提示：GitHub master 可能比部署版本更新。NVIDIA 示例里的消息区间、算法与协议组合是特定平台结果，不可直接复制到 Ascend、沐曦或其他 NVIDIA 硬件。
+
+## 最终建议
+
+把 NVIDIA Tuner 作为“决策层插件 + 成本画像 + 选择性覆盖 + 可回退”的参考架构。先完成版本/接口核对、候选能力矩阵和性能画像，再实现 NCCL 插件原型；Prefill/Decode 感知需要框架侧桥接。完成 NCCL 端到端闭环后，再独立适配 MCCL。执行层缓存或自定义 Executor 保留为独立候选实验，不应替代最优算法选择主线。
